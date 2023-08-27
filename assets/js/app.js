@@ -1,25 +1,24 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
-
 const locoScroll = new LocomotiveScroll({
   el: document.querySelector("body"),
   smooth: true
 });
-// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+
 locoScroll.on("scroll", ScrollTrigger.update);
 
-// tell ScrollTrigger to use these proxy methods for the "body" element since Locomotive Scroll is hijacking things
 ScrollTrigger.scrollerProxy("body", {
   scrollTop(value) {
     return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+  },
   getBoundingClientRect() {
     return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
   },
-  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-  pinType: document.querySelector("body").style.transform ? "transform" : "fixed"
+  
+pinType: document.querySelector("body").style.transform ? "transform" : "fixed"
 });
+
+
 
 
 
@@ -94,12 +93,12 @@ timeline.from('nav .navbar-brand, nav .nav-items li, nav .nav-actions li',{
     stagger: 0.1
 });
 
-gsap.to('.navbar',{
+gsap.to('header',{
     backgroundColor: '#191919',
     padding: '5px 0',
     duration: 0.7,
     scrollTrigger: {
-        trigger: '.navbar',
+        trigger: 'header',
         scroller: 'body',
         start: 'top -10%',
         end: 'end -15%',
@@ -182,16 +181,27 @@ gsap.to('.banner-img-item-3', {
     yoyo: true
 })
 
-gsap.from('.about-us-section',{
-    marginLeft: '30%',
-    marginRight: '30%',
-    borderRadius: '50px',
+gsap.to('.training-section h2',{
+    transform: 'translateX(-120%)',
+    duration: 2,
     scrollTrigger:{
-        trigger: '.about-us-section ',
+        trigger: '.training-section h2',
         scroller: 'body',
-        start: 'top 40%',
-        end: 'top -100%',
-        scrub: 5
+        start: 'top 60%',
+        end: '+=40%',
+        scrub: 2,
+        pin: true   
+    }
+})
+
+gsap.to('.about-us-section .about-bg',{
+    clipPath: 'inset(0%)',
+    scrollTrigger:{
+        trigger: '.about-us-section .about-bg',
+        scroller: 'body',
+        start: 'top 50%',
+        end: '+=10%',
+        scrub: 2,
     }
 })
 
@@ -200,32 +210,51 @@ gsap.to('.about-us-section h2',{
     scrollTrigger:{
         trigger: '.about-us-section h2',
         scroller: 'body',
-        start: 'top top',
-        end: 'top -100%',
+        start: 'top 90%',
+        end: '+=100%',
         scrub: 2,
     }
 })
-
-gsap.to('.training-section h2',{
-    transform: 'translateX(-240%)',
-    duration: 2,
-    scrollTrigger:{
-        trigger: '.training-section h2',
-        scroller: 'body',
-        start: 'top 40%',
-        end: 'top -100%',
-        scrub: 4,
-        pin: true   
-    }
-})
-
 gsap.to('.training-programs-section h2',{
     textShadow: '10px 10px 0px #26d184',
     scrollTrigger:{
         trigger: '.training-programs-section h2',
         scroller: 'body',
         start: 'top 100%',
-        end: 'top -100%',
+        end: '+=100%',
+        scrub: 2,
+    }
+})
+gsap.from('.training-programs-section .training-program.active .program-contents',{
+    bottom: -200,
+    opacity: 0,
+    scrollTrigger:{
+        trigger: '.training-programs-section .training-program.active .program-contents',
+        scroller: 'body',
+        start: 'top 101%',
+        end: '+=1',
+        scrub: 2,
+    }
+})
+
+gsap.to('.our-stories-section h2',{
+    textShadow: '10px 10px 0px #26d184',
+    scrollTrigger:{
+        trigger: '.our-stories-section h2',
+        scroller: 'body',
+        start: 'top 70%',
+        end: '+=100%',
+        scrub: 2,
+    }
+})
+
+gsap.to('.contact-us-section h2',{
+    textShadow: '10px 10px 0px #26d184',
+    scrollTrigger:{
+        trigger: '.contact-us-section h2',
+        scroller: 'body',
+        start: 'top 70%',
+        end: '+=100%',
         scrub: 2,
     }
 })

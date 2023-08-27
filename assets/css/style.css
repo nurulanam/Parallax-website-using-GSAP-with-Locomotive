@@ -1,16 +1,17 @@
 /* base  */
 *{
-    padding: 0;
     margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 *::selection{
     background: #26d184;
     color: #fff;
 }
 body{
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
+    font-size: 18px;
     background-color: #191919;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 a{
     text-decoration: none;
@@ -30,6 +31,9 @@ ul{
 .justify-between{
     justify-content: space-between;
 }
+.justify-center{
+    justify-content: center;
+}
 .gap-40{
     gap: 40px;
 }
@@ -37,6 +41,10 @@ ul{
 .items-center{
     align-items: center;
 }
+.text-center{
+    text-align: center;
+}
+
 .text-white{
     color: #fff;
 }
@@ -49,6 +57,9 @@ ul{
 .btn{
     padding: 15px 20px;
     border-radius: 8px;
+    color: #26d184;
+    border: 2px solid #26d184;
+    border-radius: 0px;
 }
 .btn-white{
     background-color: #fff;
@@ -60,6 +71,10 @@ ul{
 }
 .absolute{
     position: absolute;
+}
+.heading{
+    font-size: 120px;
+    text-shadow: 2px 2px 0px #26d184;
 }
 /* components  */
 
@@ -92,6 +107,7 @@ header{
     top: 0;
     width: 100%;
     z-index: 99;
+    padding: 15px 0px;
 }
 nav{
     height: 60px;
@@ -196,7 +212,7 @@ nav ul li a{
 .training-section{
     background: url('/assets/img/user-dot.png');
     position: relative;
-    padding-bottom: 120px;
+    overflow: hidden;
 }
 .training-section h2{
     font-size: 300px;
@@ -220,18 +236,21 @@ nav ul li a{
 
 .about-us-section{
     min-height: 100vh;
-    margin: 0;
+    /* margin: 0% 35%; */
     position: relative;
     overflow: hidden;
+    z-index: 0;
 }
+
 .about-us-section .about-bg{
     width: 100%;
     height: 100%;
     z-index: -1;
+    clip-path: inset(15%);
 }
 .about-us-section .about-bg img{
     object-fit: cover;
-    filter: brightness(50%);
+    filter: brightness(60%);
 }
 .about-us-section .about-details{
     display: grid;
@@ -250,21 +269,19 @@ nav ul li a{
     text-align: end;
 
 }
-.about-us-section .about-details h2{
-    font-size: 120px;
+.about-us-section .about-details .contents h2{
     padding-bottom: 15px;
-    text-shadow: 2px 2px 0px #26d184;
 }
-.about-us-section .about-details p{
+.about-us-section .about-details .contents p{
     font-size: 22px;
-    padding-bottom: 15px;
     text-transform: capitalize;
+    padding-bottom: 45px !important;
+
 }
-.about-us-section .about-details a{
-    text-decoration: none;
-    color: #26d184;
+
+.about-us-section .about-details .contents a{
 }
-.about-us-section .about-details a span{
+.about-us-section .about-details .contents a span{
     transform: rotate(90deg);
 }
 
@@ -277,8 +294,6 @@ nav ul li a{
 }
 .training-programs-section h2{
     text-align: center;
-    font-size: 120px;
-    text-shadow: 2px 2px 0px #26d184;
 }
 .training-programs-section .training-programs{
     display: grid;
@@ -293,7 +308,7 @@ nav ul li a{
     grid-column: span 1;
     position: relative;
     overflow: hidden;
-    transition: 0.17s all linear;
+    transition: 0.17s all ease;
     border: 10px solid #0f8f57;
 
 }
@@ -312,7 +327,7 @@ nav ul li a{
     margin: 0 auto;
     transform: translateX(-50%);
     opacity: 0;
-    transition: 0.17s all linear;
+    transition: 0.17s all ease;
 }
 .training-program .program-contents h3{
     text-align: center;  
@@ -339,10 +354,110 @@ nav ul li a{
     background: #26d184;
     padding: 15px;
     bottom: 15px;
+    opacity: 1;
     left: 50%;   
     width: 90%;
     margin: 0 auto;
     transform: translateX(-50%);
     opacity: 1;
-    transition: 0.17s all linear;
+    transition: 0.17s all ease;
+}
+
+
+/* our stories section start  */
+.our-stories-section{
+    min-height: 100vh;
+    padding: 40px;
+}
+.our-stories-section h2{
+    text-align: start;
+}
+
+.our-stories-section .our-stories{
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+}
+.our-stories-section .our-stories .our-story{
+    border: 10px solid #0f8f57;
+    transition: 0.2s all ease;
+}
+.our-stories-section .our-stories .our-story:hover{
+    box-shadow: 10px 10px #26d184;
+}
+.our-stories-section  a{
+    margin-top: 40px;
+    display: inline-block;
+}
+
+/* contact us start  */
+.contact-us-section{
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-us-section form{
+    background-color: #26d184;
+    max-width: 720px;
+    margin: 40px auto;
+    padding: 40px;
+}
+.contact-us-section form .form-control{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.contact-us-section form input, .contact-us-section form textarea{
+    padding: 15px 0;
+    background-color: transparent;
+    font-size: 18px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #191919;
+    outline: none;
+    color: #191919;
+    font-weight: 500;
+}
+.contact-us-section form input::placeholder, .contact-us-section form textarea::placeholder{
+    color: #191919;
+    text-transform: capitalize;
+}
+.contact-us-section form .btn{
+    margin-top: 15px;
+    width: 100%;
+    background-color:transparent;
+    font-size: 18px;
+    border-color: #191919;
+    color: #191919;
+    transition: 0.17s all ease;
+}
+.contact-us-section form .btn:hover{
+    margin-top: 15px;
+    width: 100%;
+    background-color:#191919;
+    font-size: 18px;
+    border-color: #191919;
+    color: #26d184;
+}
+.contact-us-section .contact-bg{
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.contact-us-section .contact-bg img{
+    filter: brightness(60%);
+    object-fit: cover;
+}
+
+/* footer start  */
+footer{
+    background-color: #26d184;
+    padding: 15px 0;
+}
+footer p{
+    color: #191919;
+}
+footer p a{
+    color: #191919;
 }

@@ -12,8 +12,8 @@
 
 <body>
     <!-- header start  -->
-    <header >
-        <nav class="navbar">
+    <header data-scroll>
+        <nav class="navbar" >
             <div class="container flex justify-between items-center">
                 <img class="navbar-brand"
                     src="https://upload.wikimedia.org/wikipedia/commons/f/fe/IRIB_Mazandaran_White_Logo.png" alt="">
@@ -22,18 +22,20 @@
                         <a href="#">home</a>
                     </li>
                     <li>
-                        <a href="#training-programs">Training Programs</a>
+                        <a href="#">About Us</a>
                     </li>
                     <li>
-                        <a href="#">Stories of Survival</a>
+                        <a href="#">Training Programs</a>
                     </li>
                     <li>
-                        <a href="#">Community Forum</a>
+                        <a href="#">Our Stories</a>
+                    </li>
+                    <li>
+                        <a href="#contactUs" data-scroll-target="#contactUs">Contact us</a>
                     </li>
                 </ul>
-                <ul class="nav-actions flex items-center gap-40 upparcase">
-                    <li><a href="#">Log in</a></li>
-                    <li><a class="btn btn-white text-dark" href="#">Get Started</a></li>
+                <ul class="nav-actions gap-40 upparcase">
+                    <li><a class="btn text-dark" href="#">Call to action</a></li>
                 </ul>
             </div>
         </nav>
@@ -44,7 +46,7 @@
     <div class="mouse-pointer-bg"></div>
 
     <!-- banner section start  -->
-    <section class="banner-section">
+    <section class="banner-section" data-scroll-section>
         <div class="container">
             <img class="banner-bg absolute"
                 src="https://images.unsplash.com/photo-1475070929565-c985b496cb9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
@@ -62,7 +64,7 @@
                 <h1 class="get-ready">get ready</h1>
                 <h2 class="alone text-white">To survive alone</h2>
             </div>
-            <img class="bush-left absolute"  src="assets/img/left-bush.png" alt="">
+            <img class="bush-left absolute" src="assets/img/left-bush.png" alt="">
             <!-- <img class="bush-bottom absolute" src="assets/img/bottom-bush.png" alt=""> -->
             <img class="bush-right absolute" src="assets/img/right-bush.png" alt="">
             <a class="get-started text-white upparcase" href="#">Get Started &darr;</a>
@@ -70,43 +72,49 @@
     </section>
 
     <!-- training section start -->
-    <section class="training-section">
+    <section class="training-section" data-scroll>
         <div class="container">
-            <h2 class="text-stroke-white upparcase" data-scroll data-scroll-speed="0.2">We are here to train you with
-                love<span>.</span></h2>
+            <h2 class="text-stroke-white upparcase">We stand to guide
+                you<span>.</span></h2>
         </div>
         <div class="training-box absolute"></div>
     </section>
 
+
     <!-- about us section start  -->
-    <section class="about-us-section flex items-center" data-scroll data-scroll-speed="0.2">
+    <section class="about-us-section flex items-center" data-scroll-section>
         <div class="container">
             <div class="about-details">
                 <div class="about-img">
-                    <img data-scroll data-scroll-speed="3" src="https://images.unsplash.com/photo-1483428400520-675ef69a3bc4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9yZXN0JTIwdGVhbXxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="" srcset="">
+                    <img data-scroll data-scroll-speed="5"
+                        src="https://images.unsplash.com/photo-1483428400520-675ef69a3bc4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9yZXN0JTIwdGVhbXxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+                        alt="" srcset="">
                 </div>
                 <div class="contents">
-                    <h2 class="text-white upparcase">About Us</h2>
+                    <h2 class="text-white heading upparcase">About Us</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, officiis quod
                         voluptatibus nostrum aliquid aperiam, vitae cupiditate, itaque magni cum laboriosam! Odit rem
                         nam repudiandae excepturi ipsam deserunt deleniti corrupti aspernatur. Adipisci fuga eos
                         deserunt tenetur officia incidunt in laborum dolor.</p>
-                    <a href="#">Follow us on Instagram <span>↑</span></a>
+                    <div class="">
+                        <a class="btn" href="#">Follow us on Instagram <span>↑</span></a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="about-bg absolute">
-            <img class="" src="https://images.unsplash.com/photo-1516832119974-8c3613657649?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="">
+        <div class="about-bg absolute" data-scroll data-scroll-speed="1.2">
+            <img class=""
+                src="https://images.unsplash.com/photo-1516832119974-8c3613657649?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt="">
         </div>
     </section>
 
-
     <!-- training programs start  -->
-    <section class="training-programs-section flex items-center" id="training-programs">
+    <section class="training-programs-section flex items-center" id="training-programs" data-scroll-section>
         <div class="container">
-            <h2 class="text-white upparcase">Training Programs</h2>
+            <h2 class="text-white heading upparcase">Training Programs</h2>
             <div class="training-programs">
-                <div class="training-program">
+                <div class="training-program" data-scroll data-scroll-speed="0.9">
                     <img src="https://images.unsplash.com/photo-1629642972310-17de49710ea8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
                         alt="">
                     <div class="program-contents absolute">
@@ -118,14 +126,14 @@
                 <div class="training-program active" data-scroll data-scroll-speed="1.1">
                     <img src="https://images.unsplash.com/photo-1682686578456-69ae00b0ecbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
                         alt="">
-                    <div class="program-contents absolute" >
+                    <div class="program-contents absolute">
                         <h3>Solo Survival Expedition Course
                         </h3>
                         <p>Embark on a transformative journey. Learn essential skills to conquer the wild, survive, and
                             thrive.</p>
                     </div>
                 </div>
-                <div class="training-program">
+                <div class="training-program" data-scroll data-scroll-speed="0.9">
                     <img src="https://images.unsplash.com/photo-1634742193353-49a7d1667e1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1948&q=80"
                         alt="">
                     <div class="program-contents absolute">
@@ -137,6 +145,58 @@
             </div>
         </div>
     </section>
+
+    <!-- our stories section start  -->
+    <section class="our-stories-section flex items-center" data-scroll-section>
+        <div class="container">
+            <h2 class="text-white heading upparcase">Our Stories</h2>
+            <div class="our-stories">
+                <div class="our-story">
+                    <iframe width="100%" height="500"
+                        src="https://www.youtube.com/embed/zhzJGMVureM?si=i5fmqlXHmMGORTCu" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="our-story">
+                    <iframe width="100%" height="500"
+                        src="https://www.youtube.com/embed/zhzJGMVureM?si=i5fmqlXHmMGORTCu" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+            <a href="" class="btn">See All Stories</a>
+        </div>
+    </section>
+
+    <!-- contact us start  -->
+    <section class="contact-us-section flex items-center" data-scroll-section id="contactUs">
+        <div class="container">
+            <h2 class="text-white text-center heading upparcase">Contact Us</h2>
+            <form action="" data-scroll data-scroll-speed="2">
+                <div class="form-control">
+                    <input type="text" name="name" placeholder="write your name">
+                </div>
+                <div class="form-control">
+                    <input type="email" name="email" placeholder="write your e-mail address">
+                </div>
+                <div class="form-control">
+                    <textarea name="message" id="" cols="30" rows="10" placeholder="Please write your message here"></textarea>
+                </div>
+                <div>
+                    <button class="btn">Get in touch</button>
+                </div>
+            </form>
+        </div>
+        <div class="contact-bg absolute" data-scroll data-scroll-speed="1.3">
+            <img src="https://images.unsplash.com/photo-1466096115517-bceecbfb6fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="">
+        </div>
+    </section>
+
+    <footer data-scroll-section>
+        <p class="text-center">© Copywrite by <a href="//www.behance.net/nurulanam">Nurul Anam</a></p>
+    </footer>
 
 
 
