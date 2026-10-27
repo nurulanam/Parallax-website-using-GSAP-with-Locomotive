@@ -128,7 +128,7 @@ button,a{-webkit-tap-highlight-color:transparent}
  .menu-toggle{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;gap:6px;width:44px;height:44px;padding:10px;border:1px solid var(--line);background:var(--ink);cursor:pointer}
  .menu-toggle span{display:block;width:100%;height:1px;background:var(--paper);transition:transform .25s}
  .menu-toggle[aria-expanded=true] span:first-child{transform:translateY(3.5px) rotate(45deg)}.menu-toggle[aria-expanded=true] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
- .nav-panel{position:fixed;inset:0;display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:34px;padding:90px var(--gutter) 40px;background:var(--ink);opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .25s,visibility .25s,transform .25s}
+ .nav-panel{position:fixed;inset:0;display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:34px;overflow-y:auto;overscroll-behavior:contain;padding:90px var(--gutter) 40px;background:var(--ink);opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .25s,visibility .25s,transform .25s}
  .nav-panel.is-open{opacity:1;visibility:visible;transform:translateY(0)}.nav-items{display:flex;flex-direction:column;align-items:flex-start;gap:20px}.nav-items a{font:600 clamp(32px,9vw,48px)/1 'Manrope',sans-serif;letter-spacing:-.05em;text-transform:none}.nav-cta{align-self:flex-start}
  .hero{min-height:max(690px,100svh)}.hero-content{padding-top:100px}.hero h1{max-width:560px;font-size:clamp(67px,15.5vw,105px);line-height:.88}
  .hero h1 span{margin-top:8px;font-size:.63em}.hero-eyebrow{font-size:9px}.hero-photo-one{top:21%;left:auto;right:25%;width:100px;height:135px}.hero-photo-two{top:14%;right:4%;width:90px;height:120px}.hero-photo-three{right:12%;bottom:17%;width:94px;height:120px}
@@ -156,3 +156,61 @@ button,a{-webkit-tap-highlight-color:transparent}
 .dialog-close:hover{background:var(--green);color:var(--ink)}
 @keyframes dialog-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @media (prefers-reduced-motion:reduce){.story-dialog[open]{animation:none}}
+
+/* Additional field guide and FAQ sections */
+.field-guide{background:#222821;color:var(--paper)}
+.field-guide-heading{display:grid;grid-template-columns:1fr .7fr;align-items:end;gap:clamp(35px,8vw,115px);margin-bottom:65px}
+.field-guide .section-title{font-size:clamp(52px,8vw,104px)}
+.field-guide .section-title span,.faq .section-title span{color:var(--green)}
+.field-guide-intro{max-width:470px;margin:0 0 7px;color:#c2c9be;font-size:clamp(15px,1.5vw,19px);line-height:1.8}
+.field-habits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2.3vw,32px)}
+.field-habit{min-height:245px;padding:20px 18px 22px 0;border-top:1px solid #f1f0e93b;transition:border-color .25s,transform .25s var(--ease)}
+.field-habit:hover{border-color:var(--green);transform:translateY(-4px)}
+.habit-number{display:inline-block;margin-bottom:37px;color:var(--green);font-size:11px;font-weight:700;letter-spacing:.14em}
+.field-habit h3{margin:0 0 11px;font:600 clamp(18px,2vw,24px)/1.15 'Manrope',sans-serif;letter-spacing:-.04em;text-transform:uppercase}
+.field-habit p{margin:0;color:#b8beb5;font-size:13px;line-height:1.65}
+.field-safety-note{display:flex;align-items:flex-start;gap:12px;margin:45px 0 0;padding-top:19px;border-top:1px solid var(--line);color:#cbd1c6;font-size:12px}
+.field-safety-note span{color:var(--green);font-size:16px;line-height:1.2}
+.faq{background:var(--paper);color:var(--ink)}
+.faq-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(50px,10vw,150px)}
+.faq-heading .eyebrow{color:var(--green-dark)}
+.faq-heading .section-title{font-size:clamp(52px,7vw,94px)}
+.faq-heading>p:not(.eyebrow){max-width:360px;margin:22px 0 25px;color:#656c63;line-height:1.75}
+.faq-heading .text-link{border-color:#72776e}
+.faq-list{border-top:1px solid #191d1933}
+.faq-item{border-bottom:1px solid #191d1933}
+.faq-item summary{position:relative;padding:23px 40px 23px 0;cursor:pointer;list-style:none;font:600 clamp(17px,2vw,23px)/1.3 'Manrope',sans-serif;letter-spacing:-.025em}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{position:absolute;top:50%;right:4px;color:var(--green-dark);content:'+';font:400 28px/1 Arial,sans-serif;transform:translateY(-50%);transition:transform .2s}
+.faq-item[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq-item summary:focus-visible{outline:2px solid var(--green-dark);outline-offset:4px}
+.faq-item p{max-width:680px;margin:0;padding:0 35px 24px 0;color:#60665e;font-size:14px;line-height:1.75}
+@media (max-width:780px){.nav-panel{gap:14px}.nav-items{gap:12px}.nav-items a{font-size:9px}.nav-cta{padding-inline:10px}}
+@media (max-width:680px){
+ .nav-panel{gap:34px}.nav-items{gap:17px}.nav-items a{font-size:clamp(29px,8vw,42px)}
+ .field-guide-heading{grid-template-columns:1fr;gap:22px;margin-bottom:38px}.field-guide .section-title{font-size:clamp(48px,12vw,74px)}
+ .field-habits{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px}.field-habit{min-height:210px;padding-right:4px}.habit-number{margin-bottom:24px}.field-habit h3{font-size:18px}.field-habit p{font-size:12px}
+ .field-safety-note{margin-top:30px;font-size:11px}
+ .faq-layout{grid-template-columns:1fr;gap:40px}.faq-heading .section-title{font-size:clamp(50px,12vw,75px)}.faq-heading>p:not(.eyebrow){font-size:14px}.faq-item summary{padding-block:20px;font-size:18px}.faq-item p{font-size:13px}
+}
+@media (max-width:380px){.field-habits{grid-template-columns:1fr}.field-habit{min-height:unset;padding:17px 0}.habit-number{margin-bottom:15px}}
+
+/* Consistent section rhythm and tonal transitions */
+:root{--section-space:clamp(76px,8vw,120px)}
+.section{padding-block:var(--section-space)}
+.section-heading{margin-bottom:clamp(34px,4vw,48px)}
+.manifesto{padding:clamp(82px,9vw,138px) 0 clamp(60px,7vw,96px)}
+.about.section{padding-block:clamp(76px,7vw,104px)}
+.programs{background:linear-gradient(145deg,#f2f1e9 0%,#e9eee4 100%)}
+.field-guide{background:radial-gradient(ellipse at 82% 8%,rgba(155,227,103,.09),transparent 34%),#1b2820}
+.field-guide-heading{margin-bottom:clamp(40px,5vw,58px)}
+.programs + .field-guide{border-top:1px solid rgba(25,29,25,.08)}
+.field-guide + .stories{border-top:1px solid rgba(241,240,233,.08)}
+.stories + .faq{border-top:1px solid rgba(25,29,25,.1)}
+section[id]{scroll-margin-top:82px}
+@media (max-width:680px){
+ .section{padding-block:clamp(56px,12vw,78px)}
+ .manifesto{padding:68px 0 56px}
+ .about.section{padding-block:68px}
+ .field-guide-heading{margin-bottom:32px}
+}
