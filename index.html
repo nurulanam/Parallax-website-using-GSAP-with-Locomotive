@@ -12,6 +12,7 @@
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
     <header class="site-header">
         <nav class="navbar container" aria-label="Main navigation">
             <a class="brand" href="#home" aria-label="Wildform home">
@@ -35,11 +36,11 @@
 
     <main id="main">
         <section class="hero" id="home" aria-labelledby="hero-title">
-            <img class="hero-background" src="https://images.unsplash.com/photo-1475070929565-c985b496cb9f?auto=format&fit=crop&w=2200&q=85" alt="Sunlight falling across a green forest" fetchpriority="high">
+            <img class="hero-background" src="https://images.unsplash.com/photo-1475070929565-c985b496cb9f?auto=format&fit=crop&w=1800&q=80" alt="Sunlight falling across a green forest" fetchpriority="high" decoding="async">
             <div class="hero-shade"></div>
-            <div class="hero-photo hero-photo-one"><img src="https://images.unsplash.com/photo-1494995971821-13e351803d47?auto=format&fit=crop&w=700&q=80" alt="A quiet trail through the woods" fetchpriority="high"></div>
-            <div class="hero-photo hero-photo-two"><img src="https://images.unsplash.com/photo-1473830394358-91588751b241?auto=format&fit=crop&w=850&q=80" alt="Mountain landscape beneath a cloudy sky" fetchpriority="high"></div>
-            <div class="hero-photo hero-photo-three"><img src="https://images.unsplash.com/photo-1567629780805-fa1fd8bcedda?auto=format&fit=crop&w=600&q=80" alt="A campfire in the wilderness" fetchpriority="high"></div>
+            <div class="hero-photo hero-photo-one"><img src="https://images.unsplash.com/photo-1494995971821-13e351803d47?auto=format&fit=crop&w=500&q=75" alt="A quiet trail through the woods" fetchpriority="low" decoding="async"></div>
+            <div class="hero-photo hero-photo-two"><img src="https://images.unsplash.com/photo-1473830394358-91588751b241?auto=format&fit=crop&w=500&q=75" alt="Mountain landscape beneath a cloudy sky" fetchpriority="low" decoding="async"></div>
+            <div class="hero-photo hero-photo-three"><img src="https://images.unsplash.com/photo-1758272960205-96258d60ac1f?auto=format&fit=crop&w=420&q=75" alt="Friends around a campfire at night" fetchpriority="low" decoding="async"></div>
             <div class="hero-content container">
                 <p class="eyebrow hero-eyebrow">Find your way out there</p>
                 <h1 id="hero-title">Get ready<span> to survive alone.</span></h1>
@@ -56,9 +57,9 @@
         </section>
 
         <section class="about section" id="about" aria-labelledby="about-title">
-            <div class="about-backdrop" aria-hidden="true"></div>
+            <div class="about-backdrop" aria-hidden="true"><img src="https://images.unsplash.com/photo-1516832119974-8c3613657649?auto=format&fit=crop&w=1400&q=75" alt="" loading="lazy" decoding="async"></div>
             <div class="container about-grid">
-                <div class="about-image reveal"><img src="https://images.unsplash.com/photo-1483428400520-675ef69a3bc4?auto=format&fit=crop&w=1000&q=80" alt="Outdoor team exploring a forest" loading="lazy"></div>
+                <div class="about-image reveal"><img src="https://images.unsplash.com/photo-1483428400520-675ef69a3bc4?auto=format&fit=crop&w=1000&q=80" alt="Outdoor team exploring a forest" loading="lazy" decoding="async"></div>
                 <div class="about-copy reveal">
                     <p class="eyebrow">A little more capable</p>
                     <h2 class="section-title" id="about-title">About<br>Wildform</h2>
@@ -77,15 +78,15 @@
                 </div>
                 <div class="program-grid">
                     <article class="program-card reveal">
-                        <img src="https://images.unsplash.com/photo-1629642972310-17de49710ea8?auto=format&fit=crop&w=1000&q=80" alt="Hiker navigating a forest trail" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1629642972310-17de49710ea8?auto=format&fit=crop&w=1000&q=80" alt="Hiker navigating a forest trail" loading="lazy" decoding="async">
                         <div class="program-overlay"><span class="card-number">01</span><div><h3>Natural navigation</h3><p>Read the landscape, use natural cues, and find your way with confidence.</p></div><a href="#contactUs" aria-label="Ask about Natural navigation">↗</a></div>
                     </article>
                     <article class="program-card reveal">
-                        <img src="https://images.unsplash.com/photo-1682686578456-69ae00b0ecbd?auto=format&fit=crop&w=1000&q=80" alt="A solo adventurer surrounded by nature" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1682686578456-69ae00b0ecbd?auto=format&fit=crop&w=1000&q=80" alt="A solo adventurer surrounded by nature" loading="lazy" decoding="async">
                         <div class="program-overlay"><span class="card-number">02</span><div><h3>Solo survival expedition</h3><p>Build essential skills and put them into practice on a guided expedition.</p></div><a href="#contactUs" aria-label="Ask about Solo survival expedition">↗</a></div>
                     </article>
                     <article class="program-card reveal">
-                        <img src="https://images.unsplash.com/photo-1634742193353-49a7d1667e1c?auto=format&fit=crop&w=1000&q=80" alt="Tent pitched at a wilderness campsite" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1634742193353-49a7d1667e1c?auto=format&fit=crop&w=1000&q=80" alt="Tent pitched at a wilderness campsite" loading="lazy" decoding="async">
                         <div class="program-overlay"><span class="card-number">03</span><div><h3>Survival mindset</h3><p>Develop resilience, sound decision-making, and a steady head under pressure.</p></div><a href="#contactUs" aria-label="Ask about Survival mindset">↗</a></div>
                     </article>
                 </div>
@@ -100,15 +101,15 @@
                     <p class="section-intro">Real lessons and moments from the people who have been there.</p>
                 </div>
                 <div class="story-grid">
-                    <article class="story-card reveal"><a href="https://www.youtube.com/watch?v=zhzJGMVureM" target="_blank" rel="noopener noreferrer" aria-label="Watch Wildform field story on YouTube"><div class="video-frame"><img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1000&q=80" alt="Deer in a forest at sunrise" loading="lazy"><span class="play-button" aria-hidden="true">▶</span></div><h3>A different kind of confidence <span aria-hidden="true">↗</span></h3></a></article>
-                    <article class="story-card reveal"><a href="https://www.youtube.com/watch?v=zhzJGMVureM" target="_blank" rel="noopener noreferrer" aria-label="Watch another Wildform field story on YouTube"><div class="video-frame"><img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1000&q=80" alt="A sunlit path winding through a forest" loading="lazy"><span class="play-button" aria-hidden="true">▶</span></div><h3>Learning to read the wild <span aria-hidden="true">↗</span></h3></a></article>
+                    <article class="story-card reveal"><a class="story-demo-link" href="#contactUs" data-demo-open aria-label="Open the field story video demo: A different kind of confidence"><div class="video-frame"><img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=75" alt="Deer in a forest at sunrise" loading="lazy" decoding="async"><span class="play-button" aria-hidden="true">▶</span></div><h3>A different kind of confidence <span aria-hidden="true">↗</span></h3></a></article>
+                    <article class="story-card reveal"><a class="story-demo-link" href="#contactUs" data-demo-open aria-label="Open the field story video demo: Learning to read the wild"><div class="video-frame"><img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=75" alt="A sunlit path winding through a forest" loading="lazy" decoding="async"><span class="play-button" aria-hidden="true">▶</span></div><h3>Learning to read the wild <span aria-hidden="true">↗</span></h3></a></article>
                 </div>
-                <a class="text-link" href="https://www.youtube.com/results?search_query=wilderness+survival+stories" target="_blank" rel="noopener noreferrer">More field stories <span aria-hidden="true">↗</span></a>
+                <a class="text-link" href="#contactUs">Ask about a field story demo <span aria-hidden="true">↗</span></a>
             </div>
         </section>
 
         <section class="contact section" id="contactUs" aria-labelledby="contact-title">
-            <div class="contact-background" aria-hidden="true"></div>
+            <div class="contact-background" aria-hidden="true"><img src="https://images.unsplash.com/photo-1466096115517-bceecbfb6fde?auto=format&fit=crop&w=1400&q=75" alt="" loading="lazy" decoding="async"></div>
             <div class="container contact-inner">
                 <div class="contact-copy reveal"><p class="eyebrow">Your next adventure starts here</p><h2 class="section-title" id="contact-title">Let's get<br>you out there<span>.</span></h2><p>Tell us what you’re curious about. We’ll help you find the right course.</p></div>
                 <form class="contact-form reveal">
@@ -121,6 +122,14 @@
             </div>
         </section>
     </main>
+
+    <dialog class="story-dialog" id="story-demo" aria-labelledby="story-demo-title">
+        <button class="dialog-close" type="button" aria-label="Close video demo">×</button>
+        <p class="eyebrow">Field story preview</p>
+        <h2 id="story-demo-title">Video demo</h2>
+        <p>This is a demo preview. Video playback will be added here when a video source is available.</p>
+        <a class="button" href="#contactUs" data-demo-contact>Ask us about it <span aria-hidden="true">↗</span></a>
+    </dialog>
 
     <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">W</span><span>WILDFORM</span></a><p>Find your way out there.</p><p>© <span id="year">2026</span> Wildform. Keep exploring.</p></div></footer>
 

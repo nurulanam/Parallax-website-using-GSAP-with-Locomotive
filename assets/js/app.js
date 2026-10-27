@@ -4,10 +4,17 @@
   const header = document.querySelector('.site-header');
   const menuToggle = document.querySelector('.menu-toggle');
   const navPanel = document.querySelector('.nav-panel');
+  const progressBar = document.querySelector('.scroll-progress span');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Batch scroll reads/writes into one animation frame to keep the sticky header smooth.
+  let headerFrame = 0;
   const updateHeader = () => {
-    header?.classList.toggle('is-scrolled', window.scrollY > 24);
+    if (headerFrame) return;
+    headerFrame = window.requestAnimationFrame(() => {
+      header?.classList.toggle('is-scrolled', window.scrollY > 24);
+      headerFrame = 0;
+    });
   };
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
@@ -34,6 +41,24 @@
     if (window.innerWidth > 680) closeMenu();
   }, { passive: true });
 
+  // Demo story links open a local preview; no third-party video host is used.
+  const storyDialog = document.querySelector('#story-demo');
+  const storyDialogTitle = document.querySelector('#story-demo-title');
+  document.querySelectorAll('[data-demo-open]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      if (!storyDialog?.showModal) return;
+      event.preventDefault();
+      const storyTitle = link.querySelector('h3')?.childNodes[0]?.textContent?.trim();
+      if (storyTitle && storyDialogTitle) storyDialogTitle.textContent = storyTitle;
+      storyDialog.showModal();
+    });
+  });
+  storyDialog?.querySelector('.dialog-close')?.addEventListener('click', () => storyDialog.close());
+  storyDialog?.querySelector('[data-demo-contact]')?.addEventListener('click', () => storyDialog.close());
+  storyDialog?.addEventListener('click', (event) => {
+    if (event.target === storyDialog) storyDialog.close();
+  });
+
   // This static demo has no backend configured; avoid a misleading silent form submission.
   const form = document.querySelector('.contact-form');
   form?.addEventListener('submit', (event) => {
@@ -46,95 +71,91 @@
     }
   });
 
-  // No scroll hijacking: native scrolling keeps touch, keyboard and anchor navigation reliable.
-  // GSAP animations are progressive enhancement and safely skipped if scripts are unavailable.
+  // Native scrolling avoids the touch, anchor, and layout jitter caused by scroll hijacking.
   if (!window.gsap || !window.ScrollTrigger || prefersReducedMotion) return;
 
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });
   gsap.defaults({ ease: 'power2.out' });
+
+  if (progressBar) {
+    gsap.to(progressBar, {
+      scaleX: 1,
+      ease: 'none',
+      scrollTrigger: { start: 0, end: 'max', scrub: true }
+    });
+  }
+
+  // A restrained hero entrance; only opacity and transform are animated.
+  gsap.fromTo('.hero-eyebrow, .hero h1, .hero-link',
+    { autoAlpha: 0, y: 22 },
+    { autoAlpha: 1, y: 0, duration: 0.85, stagger: 0.12, delay: 0.12, clearProps: 'transform,opacity,visibility' }
+  );
 
   const mm = gsap.matchMedia();
   mm.add('(min-width: 681px)', () => {
+    // Gentle layered parallax; native scroll remains in control for consistent touch and trackpad feel.
     gsap.to('.hero-background', {
-      scale: 1.16,
-      yPercent: 10,
+      scale: 1.12,
+      yPercent: 7,
       ease: 'none',
-      scrollTrigger: {
-        trigger: '.hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 0.7
-      }
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.45 }
     });
-
     gsap.to('.hero-photo-one', {
-      yPercent: 24,
+      yPercent: 16,
       rotation: -2,
       ease: 'none',
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.45 }
     });
     gsap.to('.hero-photo-two', {
-      yPercent: -18,
+      yPercent: -12,
       rotation: 2,
       ease: 'none',
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.45 }
     });
     gsap.to('.bush-left', {
-      xPercent: -30,
-      autoAlpha: 0.25,
+      xPercent: -22,
+      autoAlpha: 0.35,
       ease: 'none',
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.45 }
     });
     gsap.to('.bush-right', {
-      xPercent: 30,
-      autoAlpha: 0.25,
+      xPercent: 22,
+      autoAlpha: 0.35,
       ease: 'none',
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.45 }
     });
-
     gsap.to('.manifesto h2', {
-      xPercent: -18,
+      xPercent: -14,
       ease: 'none',
-      scrollTrigger: {
-        trigger: '.manifesto',
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: 1
-      }
+      scrollTrigger: { trigger: '.manifesto', start: 'top bottom', end: 'bottom top', scrub: 0.45 }
     });
-
-    gsap.from('.about-image', {
-      y: 70,
-      autoAlpha: 0,
-      duration: 1.1,
-      scrollTrigger: { trigger: '.about-grid', start: 'top 82%', once: true }
-    });
-  });
-
-  mm.add('(min-width: 681px) and (prefers-reduced-motion: no-preference)', () => {
     gsap.to('.about-backdrop', {
-      yPercent: 8,
+      yPercent: 5,
       ease: 'none',
-      scrollTrigger: { trigger: '.about', start: 'top bottom', end: 'bottom top', scrub: 1 }
+      scrollTrigger: { trigger: '.about', start: 'top bottom', end: 'bottom top', scrub: 0.45 }
     });
     gsap.to('.contact-background', {
-      yPercent: 8,
+      yPercent: 5,
       ease: 'none',
-      scrollTrigger: { trigger: '.contact', start: 'top bottom', end: 'bottom top', scrub: 1 }
+      scrollTrigger: { trigger: '.contact', start: 'top bottom', end: 'bottom top', scrub: 0.45 }
     });
   });
 
+  // Small staggered reveals are one-shot and do not affect document flow or pin sections.
   gsap.utils.toArray('.reveal').forEach((element) => {
-    gsap.from(element, {
-      y: 28,
-      autoAlpha: 0,
-      duration: 0.8,
-      scrollTrigger: { trigger: element, start: 'top 88%', once: true }
-    });
+    gsap.fromTo(element,
+      { y: 24, autoAlpha: 0 },
+      {
+        y: 0,
+        autoAlpha: 1,
+        duration: 0.72,
+        ease: 'power2.out',
+        clearProps: 'transform,opacity,visibility',
+        scrollTrigger: { trigger: element, start: 'top 90%', once: true }
+      }
+    );
   });
 
-  // Ensure image dimensions and layout have settled before calculating trigger positions.
-  window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
-  window.addEventListener('resize', gsap.utils.debounce(() => ScrollTrigger.refresh(), 180), { passive: true });
-
+  // ScrollTrigger refreshes on its own load/resize lifecycle; avoid duplicate refresh loops.
 })();
